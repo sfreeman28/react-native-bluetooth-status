@@ -73,4 +73,11 @@ class BluetoothManager {
   };
 }
 
-export let BluetoothStatus = new BluetoothManager();
+export let BluetoothStatus;
+
+export function getBluetoothStatus(): BluetoothManager {
+  if (this.BluetoothStatus === undefined){
+    this.BluetoothStatus = new BluetoothManager();
+  }
+  return this.BluetoothStatus;
+} 

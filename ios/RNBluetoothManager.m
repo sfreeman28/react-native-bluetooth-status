@@ -25,7 +25,6 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue() options:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:CBCentralManagerOptionShowPowerAlertKey]];
     }
 
     return self;
@@ -65,6 +64,7 @@ RCT_EXPORT_METHOD(initialize) {
 }
 
 -(void)startObserving {
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue() options:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:CBCentralManagerOptionShowPowerAlertKey]];
     hasListeners = YES;
     [self sendEventWithName:@"bluetoothStatus" body:stateName];
 }
